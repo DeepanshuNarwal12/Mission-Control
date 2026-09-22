@@ -1,11 +1,11 @@
 /*
 Mission Control System
-Step 5: Mission Generator and Validation System
+Step 6: Random Mission Generator and Reset System
 */
 
 
 // ===============================
-// Mission Choice Arrays
+// Mission Arrays
 // ===============================
 
 
@@ -50,8 +50,9 @@ const risks = [
 
 
 
+
 // ===============================
-// Current Selection Variables
+// Selected Values
 // ===============================
 
 
@@ -67,8 +68,9 @@ let selectedRisk = "";
 
 
 
+
 // ===============================
-// Current Array Positions
+// Index Counters
 // ===============================
 
 
@@ -84,33 +86,22 @@ let riskIndex = 0;
 
 
 
+
 // ===============================
-// DOM Element References
+// DOM References
 // ===============================
-
-
-const agentButton =
-document.querySelector(".mission-option:nth-child(1) button");
-
-
-const locationButton =
-document.querySelector(".mission-option:nth-child(2) button");
-
-
-const weaponButton =
-document.querySelector(".mission-option:nth-child(3) button");
-
-
-const objectiveButton =
-document.querySelector(".mission-option:nth-child(4) button");
-
-
-const riskButton =
-document.querySelector(".mission-option:nth-child(5) button");
 
 
 const launchButton =
 document.querySelector(".launch-button");
+
+
+const randomButton =
+document.querySelector(".random-button");
+
+
+const resetButton =
+document.querySelector(".reset-button");
 
 
 const briefingBox =
@@ -118,34 +109,22 @@ document.querySelector(".briefing-box");
 
 
 
-// System test message
-
-console.log("Mission Control System Initialized");
-
-console.log("Available Agents:", agents);
-
-console.log("Available Locations:", locations);
-
 
 
 // ===============================
-// Mission Selection Functions
+// Selection Functions
 // ===============================
 
 
-// Change Agent Type
-
-function changeAgent() {
+function changeAgent(){
 
     selectedAgent = agents[agentIndex];
 
-    document
-    .querySelector(".mission-option:nth-child(1) span")
+    document.querySelector(".mission-option:nth-child(1) span")
     .textContent = selectedAgent;
 
 
     agentIndex++;
-
 
     if(agentIndex >= agents.length){
 
@@ -157,20 +136,16 @@ function changeAgent() {
 
 
 
-// Change Mission Location
 
 function changeLocation(){
 
     selectedLocation = locations[locationIndex];
 
-
-    document
-    .querySelector(".mission-option:nth-child(2) span")
+    document.querySelector(".mission-option:nth-child(2) span")
     .textContent = selectedLocation;
 
 
     locationIndex++;
-
 
     if(locationIndex >= locations.length){
 
@@ -182,20 +157,17 @@ function changeLocation(){
 
 
 
-// Change Weapon Loadout
+
 
 function changeWeapon(){
 
     selectedWeapon = weapons[weaponIndex];
 
-
-    document
-    .querySelector(".mission-option:nth-child(3) span")
+    document.querySelector(".mission-option:nth-child(3) span")
     .textContent = selectedWeapon;
 
 
     weaponIndex++;
-
 
     if(weaponIndex >= weapons.length){
 
@@ -207,20 +179,17 @@ function changeWeapon(){
 
 
 
-// Change Mission Objective
+
 
 function changeObjective(){
 
     selectedObjective = objectives[objectiveIndex];
 
-
-    document
-    .querySelector(".mission-option:nth-child(4) span")
+    document.querySelector(".mission-option:nth-child(4) span")
     .textContent = selectedObjective;
 
 
     objectiveIndex++;
-
 
     if(objectiveIndex >= objectives.length){
 
@@ -232,20 +201,17 @@ function changeObjective(){
 
 
 
-// Change Risk Level
+
 
 function changeRisk(){
 
     selectedRisk = risks[riskIndex];
 
-
-    document
-    .querySelector(".mission-option:nth-child(5) span")
+    document.querySelector(".mission-option:nth-child(5) span")
     .textContent = selectedRisk;
 
 
     riskIndex++;
-
 
     if(riskIndex >= risks.length){
 
@@ -257,58 +223,24 @@ function changeRisk(){
 
 
 
-// ===============================
-// Button Event Listeners
-// ===============================
-
-
-agentButton.addEventListener(
-    "click",
-    changeAgent
-);
-
-
-locationButton.addEventListener(
-    "click",
-    changeLocation
-);
-
-
-weaponButton.addEventListener(
-    "click",
-    changeWeapon
-);
-
-
-objectiveButton.addEventListener(
-    "click",
-    changeObjective
-);
-
-
-riskButton.addEventListener(
-    "click",
-    changeRisk
-);
-
 
 
 // ===============================
-// Mission Generator Function
+// Mission Generator
 // ===============================
 
 
 function generateMission(){
 
 
-    // Validate mission selections
-
     if(
+
         selectedAgent === "" ||
         selectedLocation === "" ||
         selectedWeapon === "" ||
         selectedObjective === "" ||
         selectedRisk === ""
+
     ){
 
 
@@ -319,7 +251,7 @@ function generateMission(){
         </h2>
 
         <p>
-        Please complete all mission selections before launch.
+        Please complete all selections before launch.
         </p>
 
         `;
@@ -331,46 +263,23 @@ function generateMission(){
 
 
 
-    // Create mission briefing
-
     briefingBox.innerHTML = `
+
 
     <h2>
     🚀 MISSION BRIEFING
     </h2>
 
 
-    <p>
-    <strong>Agent:</strong>
-    ${selectedAgent}
-    </p>
+    <p><strong>Agent:</strong> ${selectedAgent}</p>
 
+    <p><strong>Location:</strong> ${selectedLocation}</p>
 
-    <p>
-    <strong>Location:</strong>
-    ${selectedLocation}
-    </p>
+    <p><strong>Weapon:</strong> ${selectedWeapon}</p>
 
+    <p><strong>Objective:</strong> ${selectedObjective}</p>
 
-    <p>
-    <strong>Weapon Loadout:</strong>
-    ${selectedWeapon}
-    </p>
-
-
-    <p>
-    <strong>Objective:</strong>
-    ${selectedObjective}
-    </p>
-
-
-    <p>
-    <strong>Risk Level:</strong>
-    ${selectedRisk}
-    </p>
-
-
-    <br>
+    <p><strong>Risk:</strong> ${selectedRisk}</p>
 
 
     <h3>
@@ -378,22 +287,169 @@ function generateMission(){
     </h3>
 
 
-    <p>
-    Proceed with mission protocol.
-    </p>
-
     `;
+
 
 }
 
 
 
+
+
 // ===============================
-// Launch Mission Button Event
+// Random Mission
 // ===============================
+
+
+function randomMission(){
+
+
+    selectedAgent =
+    agents[Math.floor(Math.random()*agents.length)];
+
+
+    selectedLocation =
+    locations[Math.floor(Math.random()*locations.length)];
+
+
+    selectedWeapon =
+    weapons[Math.floor(Math.random()*weapons.length)];
+
+
+    selectedObjective =
+    objectives[Math.floor(Math.random()*objectives.length)];
+
+
+    selectedRisk =
+    risks[Math.floor(Math.random()*risks.length)];
+
+
+
+    document.querySelector(".mission-option:nth-child(1) span")
+    .textContent = selectedAgent;
+
+
+    document.querySelector(".mission-option:nth-child(2) span")
+    .textContent = selectedLocation;
+
+
+    document.querySelector(".mission-option:nth-child(3) span")
+    .textContent = selectedWeapon;
+
+
+    document.querySelector(".mission-option:nth-child(4) span")
+    .textContent = selectedObjective;
+
+
+    document.querySelector(".mission-option:nth-child(5) span")
+    .textContent = selectedRisk;
+
+
+}
+
+
+
+
+
+// ===============================
+// Reset System
+// ===============================
+
+
+function resetMission(){
+
+
+    selectedAgent = "";
+
+    selectedLocation = "";
+
+    selectedWeapon = "";
+
+    selectedObjective = "";
+
+    selectedRisk = "";
+
+
+
+    document
+    .querySelectorAll(".mission-option span")
+    .forEach(function(item){
+
+        item.textContent = "Not Selected";
+
+    });
+
+
+
+    briefingBox.innerHTML = `
+
+    <h2>
+    Mission Briefing
+    </h2>
+
+
+    <p>
+    Awaiting mission data...
+    </p>
+
+    `;
+
+
+}
+
+
+
+
+// ===============================
+// Event Listeners
+// ===============================
+
+
+document
+.querySelector(".mission-option:nth-child(1) button")
+.addEventListener("click", changeAgent);
+
+
+
+document
+.querySelector(".mission-option:nth-child(2) button")
+.addEventListener("click", changeLocation);
+
+
+
+document
+.querySelector(".mission-option:nth-child(3) button")
+.addEventListener("click", changeWeapon);
+
+
+
+document
+.querySelector(".mission-option:nth-child(4) button")
+.addEventListener("click", changeObjective);
+
+
+
+document
+.querySelector(".mission-option:nth-child(5) button")
+.addEventListener("click", changeRisk);
+
 
 
 launchButton.addEventListener(
-    "click",
-    generateMission
+"click",
+generateMission
+);
+
+
+
+randomButton.addEventListener(
+"click",
+randomMission
+);
+
+
+
+resetButton.addEventListener(
+"click",
+resetMission
 );
