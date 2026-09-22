@@ -1,0 +1,38 @@
+body {
+
+    font-family: Arial, sans-serif;
+
+}
+
+
+.mission-container {
+
+    width: 80%;
+    margin: auto;
+    text-align: center;
+
+}
+
+
+button {
+
+    padding: 10px;
+    margin: 10px;
+
+}
+
+
+.mission-option {
+
+    margin: 15px;
+
+}
+
+
+.briefing-box {
+
+    margin-top: 30px;
+    border: 1px solid black;
+    padding: 20px;
+
+}
