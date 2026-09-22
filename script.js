@@ -125,3 +125,164 @@ console.log("Mission Control System Initialized");
 console.log("Available Agents:", agents);
 
 console.log("Available Locations:", locations);
+
+// ===============================
+// Mission Selection Functions
+// ===============================
+
+
+// Change Agent Type
+
+function changeAgent() {
+
+    selectedAgent = agents[agentIndex];
+
+    document
+    .querySelector(".mission-option:nth-child(1) span")
+    .textContent = selectedAgent;
+
+
+    agentIndex++;
+
+
+    if(agentIndex >= agents.length){
+
+        agentIndex = 0;
+
+    }
+
+}
+
+
+
+// Change Mission Location
+
+function changeLocation(){
+
+    selectedLocation = locations[locationIndex];
+
+
+    document
+    .querySelector(".mission-option:nth-child(2) span")
+    .textContent = selectedLocation;
+
+
+    locationIndex++;
+
+
+    if(locationIndex >= locations.length){
+
+        locationIndex = 0;
+
+    }
+
+}
+
+
+
+// Change Weapon Loadout
+
+function changeWeapon(){
+
+    selectedWeapon = weapons[weaponIndex];
+
+
+    document
+    .querySelector(".mission-option:nth-child(3) span")
+    .textContent = selectedWeapon;
+
+
+    weaponIndex++;
+
+
+    if(weaponIndex >= weapons.length){
+
+        weaponIndex = 0;
+
+    }
+
+}
+
+
+
+// Change Mission Objective
+
+function changeObjective(){
+
+    selectedObjective = objectives[objectiveIndex];
+
+
+    document
+    .querySelector(".mission-option:nth-child(4) span")
+    .textContent = selectedObjective;
+
+
+    objectiveIndex++;
+
+
+    if(objectiveIndex >= objectives.length){
+
+        objectiveIndex = 0;
+
+    }
+
+}
+
+
+
+// Change Risk Level
+
+function changeRisk(){
+
+    selectedRisk = risks[riskIndex];
+
+
+    document
+    .querySelector(".mission-option:nth-child(5) span")
+    .textContent = selectedRisk;
+
+
+    riskIndex++;
+
+
+    if(riskIndex >= risks.length){
+
+        riskIndex = 0;
+
+    }
+
+}
+
+// ===============================
+// Button Event Listeners
+// ===============================
+
+
+agentButton.addEventListener(
+    "click",
+    changeAgent
+);
+
+
+locationButton.addEventListener(
+    "click",
+    changeLocation
+);
+
+
+weaponButton.addEventListener(
+    "click",
+    changeWeapon
+);
+
+
+objectiveButton.addEventListener(
+    "click",
+    changeObjective
+);
+
+
+riskButton.addEventListener(
+    "click",
+    changeRisk
+);
