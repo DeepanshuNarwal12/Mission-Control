@@ -1,6 +1,6 @@
 /*
 Mission Control System
-Step 3: JavaScript Variables and Arrays
+Step 5: Mission Generator and Validation System
 */
 
 
@@ -125,6 +125,8 @@ console.log("Mission Control System Initialized");
 console.log("Available Agents:", agents);
 
 console.log("Available Locations:", locations);
+
+
 
 // ===============================
 // Mission Selection Functions
@@ -253,6 +255,8 @@ function changeRisk(){
 
 }
 
+
+
 // ===============================
 // Button Event Listeners
 // ===============================
@@ -285,4 +289,111 @@ objectiveButton.addEventListener(
 riskButton.addEventListener(
     "click",
     changeRisk
+);
+
+
+
+// ===============================
+// Mission Generator Function
+// ===============================
+
+
+function generateMission(){
+
+
+    // Validate mission selections
+
+    if(
+        selectedAgent === "" ||
+        selectedLocation === "" ||
+        selectedWeapon === "" ||
+        selectedObjective === "" ||
+        selectedRisk === ""
+    ){
+
+
+        briefingBox.innerHTML = `
+
+        <h2>
+        ⚠ MISSION INCOMPLETE
+        </h2>
+
+        <p>
+        Please complete all mission selections before launch.
+        </p>
+
+        `;
+
+
+        return;
+
+    }
+
+
+
+    // Create mission briefing
+
+    briefingBox.innerHTML = `
+
+    <h2>
+    🚀 MISSION BRIEFING
+    </h2>
+
+
+    <p>
+    <strong>Agent:</strong>
+    ${selectedAgent}
+    </p>
+
+
+    <p>
+    <strong>Location:</strong>
+    ${selectedLocation}
+    </p>
+
+
+    <p>
+    <strong>Weapon Loadout:</strong>
+    ${selectedWeapon}
+    </p>
+
+
+    <p>
+    <strong>Objective:</strong>
+    ${selectedObjective}
+    </p>
+
+
+    <p>
+    <strong>Risk Level:</strong>
+    ${selectedRisk}
+    </p>
+
+
+    <br>
+
+
+    <h3>
+    STATUS: AUTHORIZED
+    </h3>
+
+
+    <p>
+    Proceed with mission protocol.
+    </p>
+
+    `;
+
+}
+
+
+
+// ===============================
+// Launch Mission Button Event
+// ===============================
+
+
+launchButton.addEventListener(
+    "click",
+    generateMission
 );

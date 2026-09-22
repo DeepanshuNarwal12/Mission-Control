@@ -343,3 +343,21 @@ span {
 
 
 }
+
+.briefing-box strong {
+
+    color: #00ffcc;
+
+}
+
+
+.briefing-box h3 {
+
+    margin-top: 20px;
+
+    color: #ff0055;
+
+    text-shadow:
+    0 0 10px #ff0055;
+
+}
