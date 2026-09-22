@@ -1,6 +1,6 @@
 /*
 Mission Control System
-Step 6: Random Mission Generator and Reset System
+Step 7: Mission ID Generation and Enhanced Briefing
 */
 
 
@@ -108,6 +108,21 @@ const briefingBox =
 document.querySelector(".briefing-box");
 
 
+// New Step 7 DOM References
+
+const missionID =
+document.getElementById("missionID");
+
+
+const missionStatus =
+document.getElementById("missionStatus");
+
+
+const briefingMessage =
+document.getElementById("briefingMessage");
+
+
+
 
 
 
@@ -120,11 +135,14 @@ function changeAgent(){
 
     selectedAgent = agents[agentIndex];
 
-    document.querySelector(".mission-option:nth-child(1) span")
+
+    document
+    .querySelector(".mission-option:nth-child(1) span")
     .textContent = selectedAgent;
 
 
     agentIndex++;
+
 
     if(agentIndex >= agents.length){
 
@@ -141,11 +159,14 @@ function changeLocation(){
 
     selectedLocation = locations[locationIndex];
 
-    document.querySelector(".mission-option:nth-child(2) span")
+
+    document
+    .querySelector(".mission-option:nth-child(2) span")
     .textContent = selectedLocation;
 
 
     locationIndex++;
+
 
     if(locationIndex >= locations.length){
 
@@ -163,11 +184,14 @@ function changeWeapon(){
 
     selectedWeapon = weapons[weaponIndex];
 
-    document.querySelector(".mission-option:nth-child(3) span")
+
+    document
+    .querySelector(".mission-option:nth-child(3) span")
     .textContent = selectedWeapon;
 
 
     weaponIndex++;
+
 
     if(weaponIndex >= weapons.length){
 
@@ -185,11 +209,14 @@ function changeObjective(){
 
     selectedObjective = objectives[objectiveIndex];
 
-    document.querySelector(".mission-option:nth-child(4) span")
+
+    document
+    .querySelector(".mission-option:nth-child(4) span")
     .textContent = selectedObjective;
 
 
     objectiveIndex++;
+
 
     if(objectiveIndex >= objectives.length){
 
@@ -207,11 +234,14 @@ function changeRisk(){
 
     selectedRisk = risks[riskIndex];
 
-    document.querySelector(".mission-option:nth-child(5) span")
+
+    document
+    .querySelector(".mission-option:nth-child(5) span")
     .textContent = selectedRisk;
 
 
     riskIndex++;
+
 
     if(riskIndex >= risks.length){
 
@@ -220,6 +250,28 @@ function changeRisk(){
     }
 
 }
+
+
+
+
+
+// ===============================
+// Mission ID Generator
+// ===============================
+
+
+function generateMissionID(){
+
+
+    let randomNumber =
+    Math.floor(Math.random() * 90000) + 10000;
+
+
+    return "MC-" + randomNumber;
+
+
+}
+
 
 
 
@@ -263,27 +315,57 @@ function generateMission(){
 
 
 
-    briefingBox.innerHTML = `
+    let newMissionID =
+    generateMissionID();
 
 
-    <h2>
-    🚀 MISSION BRIEFING
-    </h2>
 
 
-    <p><strong>Agent:</strong> ${selectedAgent}</p>
+    missionID.textContent =
+    newMissionID;
 
-    <p><strong>Location:</strong> ${selectedLocation}</p>
 
-    <p><strong>Weapon:</strong> ${selectedWeapon}</p>
+    missionStatus.textContent =
+    "AUTHORIZED";
 
-    <p><strong>Objective:</strong> ${selectedObjective}</p>
 
-    <p><strong>Risk:</strong> ${selectedRisk}</p>
+
+
+    briefingMessage.innerHTML = `
+
+
+    <p>
+    <strong>Agent:</strong>
+    ${selectedAgent}
+    </p>
+
+
+    <p>
+    <strong>Location:</strong>
+    ${selectedLocation}
+    </p>
+
+
+    <p>
+    <strong>Weapon:</strong>
+    ${selectedWeapon}
+    </p>
+
+
+    <p>
+    <strong>Objective:</strong>
+    ${selectedObjective}
+    </p>
+
+
+    <p>
+    <strong>Risk:</strong>
+    ${selectedRisk}
+    </p>
 
 
     <h3>
-    STATUS: AUTHORIZED
+    STATUS: MISSION READY
     </h3>
 
 
@@ -291,6 +373,7 @@ function generateMission(){
 
 
 }
+
 
 
 
@@ -325,27 +408,33 @@ function randomMission(){
 
 
 
-    document.querySelector(".mission-option:nth-child(1) span")
+    document
+    .querySelector(".mission-option:nth-child(1) span")
     .textContent = selectedAgent;
 
 
-    document.querySelector(".mission-option:nth-child(2) span")
+    document
+    .querySelector(".mission-option:nth-child(2) span")
     .textContent = selectedLocation;
 
 
-    document.querySelector(".mission-option:nth-child(3) span")
+    document
+    .querySelector(".mission-option:nth-child(3) span")
     .textContent = selectedWeapon;
 
 
-    document.querySelector(".mission-option:nth-child(4) span")
+    document
+    .querySelector(".mission-option:nth-child(4) span")
     .textContent = selectedObjective;
 
 
-    document.querySelector(".mission-option:nth-child(5) span")
+    document
+    .querySelector(".mission-option:nth-child(5) span")
     .textContent = selectedRisk;
 
 
 }
+
 
 
 
@@ -381,21 +470,22 @@ function resetMission(){
 
 
 
-    briefingBox.innerHTML = `
-
-    <h2>
-    Mission Briefing
-    </h2>
+    missionID.textContent =
+    "Not Generated";
 
 
-    <p>
-    Awaiting mission data...
-    </p>
+    missionStatus.textContent =
+    "Awaiting Launch";
 
-    `;
+
+
+    briefingMessage.textContent =
+    "Awaiting mission data...";
 
 
 }
+
+
 
 
 

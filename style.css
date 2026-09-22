@@ -1,5 +1,6 @@
 /*
 Mission Control Dashboard Styling
+Step 7: Mission ID and Enhanced Briefing Styling
 */
 
 
@@ -433,6 +434,11 @@ span {
 
 
 
+/* ===============================
+Mission Briefing Section
+=============================== */
+
+
 .briefing-box {
 
 
@@ -459,6 +465,11 @@ span {
     background:
 
     rgba(255,255,255,0.05);
+
+
+    animation:
+
+    briefingGlow 2s infinite;
 
 
 }
@@ -495,6 +506,132 @@ span {
 
 
 }
+
+
+
+
+
+/* ===============================
+Mission ID and Status Display
+=============================== */
+
+
+.mission-details {
+
+
+    margin-bottom:
+
+    20px;
+
+
+    padding:
+
+    15px;
+
+
+    border:
+
+    1px solid #00ffcc;
+
+
+    border-radius:
+
+    8px;
+
+
+    background:
+
+    rgba(0,255,204,0.05);
+
+
+}
+
+
+
+
+
+#missionID {
+
+
+    color:
+
+    #ffaa00;
+
+
+    font-weight:
+
+    bold;
+
+
+}
+
+
+
+
+
+#missionStatus {
+
+
+    color:
+
+    #00ffcc;
+
+
+    font-weight:
+
+    bold;
+
+
+}
+
+
+
+
+
+/* ===============================
+Animations
+=============================== */
+
+
+@keyframes briefingGlow {
+
+
+    0% {
+
+
+        box-shadow:
+
+        0 0 5px white;
+
+
+    }
+
+
+    50% {
+
+
+        box-shadow:
+
+        0 0 20px #00ffcc;
+
+
+    }
+
+
+    100% {
+
+
+        box-shadow:
+
+        0 0 5px white;
+
+
+    }
+
+
+}
+
+
 
 
 
