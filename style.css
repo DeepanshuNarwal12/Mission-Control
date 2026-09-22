@@ -1,38 +1,345 @@
+/* 
+Mission Control Dashboard Styling
+Step 2: Futuristic Interface Design
+*/
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
 body {
 
-    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background:
+    radial-gradient(circle at top, #1b2735, #05080f);
+
+    color: #00ffcc;
+
+    font-family:
+    "Courier New",
+    monospace;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
 }
 
 
+/* Main dashboard container */
+
 .mission-container {
 
-    width: 80%;
-    margin: auto;
+    width: 90%;
+    max-width: 900px;
+
+    background:
+    rgba(0, 0, 0, 0.75);
+
+    border: 2px solid #00ffcc;
+
+    border-radius: 15px;
+
+    padding: 40px;
+
+    box-shadow:
+    0 0 25px #00ffcc;
+
     text-align: center;
 
 }
 
 
-button {
+/* Main heading */
 
-    padding: 10px;
-    margin: 10px;
+h1 {
+
+    font-size: 3rem;
+
+    margin-bottom: 15px;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+    0 0 10px #00ffcc;
 
 }
 
+
+.mission-container > p {
+
+    color: #ffffff;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+/* Mission selection area */
+
+.mission-panel {
+
+    display: grid;
+
+    grid-template-columns:
+    repeat(2, 1fr);
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+
+}
+
+
+
+/* Individual mission cards */
 
 .mission-option {
 
-    margin: 15px;
+    background:
+
+    rgba(0, 255, 204, 0.08);
+
+
+    border:
+
+    1px solid #00ffcc;
+
+
+    padding: 20px;
+
+    border-radius: 10px;
 
 }
+
+
+/* Buttons */
+
+button {
+
+    background:
+
+    transparent;
+
+
+    color:
+
+    #00ffcc;
+
+
+    border:
+
+    2px solid #00ffcc;
+
+
+    padding:
+
+    12px 25px;
+
+
+    border-radius:
+
+    8px;
+
+
+    cursor:
+
+    pointer;
+
+
+    font-family:
+
+    inherit;
+
+
+    font-size:
+
+    1rem;
+
+
+    transition:
+
+    0.3s;
+
+}
+
+
+
+button:hover {
+
+
+    background:
+
+    #00ffcc;
+
+
+    color:
+
+    #05080f;
+
+
+    box-shadow:
+
+    0 0 20px #00ffcc;
+
+
+}
+
+
+
+/* Current selection text */
+
+span {
+
+    display:
+
+    block;
+
+
+    margin-top:
+
+    15px;
+
+
+    color:
+
+    white;
+
+
+    font-size:
+
+    1.1rem;
+
+}
+
+
+
+/* Launch button */
+
+
+.launch-button {
+
+
+    margin-top:
+
+    20px;
+
+
+    font-size:
+
+    1.2rem;
+
+
+    border-color:
+
+    #ff0055;
+
+
+    color:
+
+    #ff0055;
+
+
+}
+
+
+
+.launch-button:hover {
+
+
+    background:
+
+    #ff0055;
+
+
+    color:
+
+    white;
+
+
+    box-shadow:
+
+    0 0 20px #ff0055;
+
+
+}
+
+
+
+/* Mission briefing box */
 
 
 .briefing-box {
 
-    margin-top: 30px;
-    border: 1px solid black;
-    padding: 20px;
+
+    margin-top:
+
+    40px;
+
+
+    padding:
+
+    25px;
+
+
+    border:
+
+    2px solid #ffffff;
+
+
+    border-radius:
+
+    10px;
+
+
+    background:
+
+    rgba(255,255,255,0.05);
+
+
+}
+
+
+
+.briefing-box h2 {
+
+
+    margin-bottom:
+
+    15px;
+
+
+}
+
+
+
+/* Mobile responsiveness */
+
+@media(max-width:700px){
+
+
+    .mission-panel {
+
+
+        grid-template-columns:
+
+        1fr;
+
+    }
+
+
+    h1 {
+
+        font-size:
+
+        2rem;
+
+    }
+
 
 }
