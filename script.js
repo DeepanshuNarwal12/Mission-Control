@@ -1,6 +1,6 @@
 /*
 Mission Control System
-Step 7: Mission ID Generation and Enhanced Briefing
+Step 10: Audio Mission Briefing and Interface Effects
 */
 
 
@@ -104,11 +104,14 @@ const resetButton =
 document.querySelector(".reset-button");
 
 
+const audioButton =
+document.querySelector(".audio-button");
+
+
 const briefingBox =
 document.querySelector(".briefing-box");
 
 
-// New Step 7 DOM References
 
 const missionID =
 document.getElementById("missionID");
@@ -372,6 +375,95 @@ function generateMission(){
     `;
 
 
+    // Add launch animation
+
+    briefingBox.classList.add(
+        "briefing-active"
+    );
+
+
+    setTimeout(function(){
+
+        briefingBox.classList.remove(
+            "briefing-active"
+        );
+
+    },1000);
+
+
+}
+
+
+
+
+
+
+// ===============================
+// Audio Mission Briefing
+// ===============================
+
+
+function playMissionAudio(){
+
+
+    if(
+
+        selectedAgent === "" ||
+        selectedLocation === "" ||
+        selectedWeapon === "" ||
+        selectedObjective === "" ||
+        selectedRisk === ""
+
+    ){
+
+        alert(
+        "Please generate a mission before playing audio."
+        );
+
+        return;
+
+    }
+
+
+
+    let speechText = `
+
+    Mission briefing activated.
+
+    Agent ${selectedAgent}.
+
+    Location ${selectedLocation}.
+
+    Weapon loadout ${selectedWeapon}.
+
+    Objective ${selectedObjective}.
+
+    Risk level ${selectedRisk}.
+
+    Mission authorized.
+
+    Proceed with protocol.
+
+    `;
+
+
+
+    let speech =
+    new SpeechSynthesisUtterance(speechText);
+
+
+
+    speech.rate = 0.9;
+
+    speech.pitch = 1;
+
+
+
+    window.speechSynthesis.speak(
+        speech
+    );
+
+
 }
 
 
@@ -542,4 +634,11 @@ randomMission
 resetButton.addEventListener(
 "click",
 resetMission
+);
+
+
+
+audioButton.addEventListener(
+"click",
+playMissionAudio
 );

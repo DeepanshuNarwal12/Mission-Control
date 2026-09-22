@@ -664,3 +664,176 @@ Animations
 
 
 }
+
+/* ===============================
+Audio Button Styling
+=============================== */
+
+
+.audio-button {
+
+
+    margin-top:
+
+    20px;
+
+
+    border-color:
+
+    #00ffaa;
+
+
+    color:
+
+    #00ffaa;
+
+
+}
+
+
+
+.audio-button:hover {
+
+
+    background:
+
+    #00ffaa;
+
+
+    color:
+
+    black;
+
+
+}
+
+
+
+
+
+
+/* ===============================
+Mission Launch Animation
+=============================== */
+
+
+.briefing-active {
+
+
+    animation:
+
+    missionLaunch 1s ease;
+
+
+}
+
+
+
+
+@keyframes missionLaunch {
+
+
+    0% {
+
+
+        transform:
+
+        scale(0.95);
+
+
+        opacity:
+
+        0.5;
+
+
+    }
+
+
+    50% {
+
+
+        transform:
+
+        scale(1.05);
+
+
+    }
+
+
+    100% {
+
+
+        transform:
+
+        scale(1);
+
+
+        opacity:
+
+        1;
+
+
+    }
+
+
+}
+
+
+
+
+
+/* Button Pulse Effect */
+
+
+.launch-button {
+
+
+    animation:
+
+    buttonPulse 2s infinite;
+
+
+}
+
+
+
+
+@keyframes buttonPulse {
+
+
+    0% {
+
+
+        box-shadow:
+
+        0 0 5px #ff0055;
+
+
+    }
+
+
+
+    50% {
+
+
+        box-shadow:
+
+        0 0 25px #ff0055;
+
+
+    }
+
+
+
+    100% {
+
+
+        box-shadow:
+
+        0 0 5px #ff0055;
+
+
+    }
+
+
+}
