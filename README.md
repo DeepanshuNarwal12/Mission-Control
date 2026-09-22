@@ -132,16 +132,6 @@ The project was developed through incremental Git commits:
 
 ------------------------------------------------------------------------
 
-🔮 Future Improvements
-
--   Voice mission briefing
--   Sound effects
--   Mission history storage
--   AI-generated missions
--   Advanced animations
-
-------------------------------------------------------------------------
-
 👨‍💻 Author
 
 Mission Control Project
